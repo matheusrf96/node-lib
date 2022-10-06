@@ -6,7 +6,7 @@ function extractLinks(text) {
     const captures = [...text.matchAll(regex)];
     const results = captures.map(capture => ({[capture[1]]: capture[2]}));
 
-    return results;
+    return results.length !== 0 ? results : 'Não há links no arquivo';
 }
 
 function handleError(err) {
@@ -18,7 +18,7 @@ async function getFile(filePath) {
 
     try {
         const text = await fs.promises.readFile(filePath, encoding)
-        console.log(extractLinks(text));
+        return extractLinks(text);
     } catch (err) {
         handleError(err);
     }
