@@ -17,9 +17,7 @@ function printList(validate, result, filename = '') {
 
 async function processText(args) {
     const path = args[2];
-    const validate = args[3] === '--valida';
-
-    console.log(validate, args)
+    const validate = args[3] === 'valida';
 
     try {
         fs.lstatSync(path);
