@@ -6,9 +6,9 @@ import validatedList from './http-validation.js';
 
 const args = process.argv;
 
-function printList(validate, result, filename = '') {
+async function printList(validate, result, filename = '') {
     if (validate) {
-        console.log(chalk.yellow('lista validada: '), chalk.black.bgGreen(filename), validatedList(result));
+        console.log(chalk.yellow('lista validada: '), chalk.black.bgGreen(filename), await validatedList(result));
         return;
     }
 
